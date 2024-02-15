@@ -24,7 +24,7 @@ jobs:
           pip install -r requirements.txt
 
       - name: Deploy Lambda function
-        uses: appleboy/aws-lambda-action@v1
+        uses: softprops/action-aws-lambda@v1
         with:
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}

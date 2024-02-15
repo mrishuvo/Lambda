@@ -32,6 +32,4 @@ jobs:
           aws lambda update-function-code \
             --function-name lambda_function \
             --zip-file fileb://lambda_function.zip \
-            --region $AWS_DEFAULT_REGION \
-            --access-key-id $AWS_ACCESS_KEY_ID \
-            --secret-access-key $AWS_SECRET_ACCESS_KEY
+            --region $AWS_DEFAULT_REGION

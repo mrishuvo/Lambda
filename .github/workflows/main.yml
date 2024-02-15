@@ -23,11 +23,17 @@ jobs:
         run: |
           zip -r lambda_function.zip .
 
+      - name: Print AWS CLI version
+        run: aws --version
+
       - name: Configure AWS credentials
         run: |
           aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}"
           aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           aws configure set region ap-south-1
+
+      - name: Show AWS CLI configuration
+        run: aws configure list
 
       - name: Deploy Lambda function
         run: |

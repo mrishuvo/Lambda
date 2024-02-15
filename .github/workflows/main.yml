@@ -25,10 +25,10 @@ jobs:
 
       - name: Configure AWS credentials
         run: |
-          aws configure set aws_access_key_id ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws configure set aws_secret_access_key ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws configure set aws_access_key_id "${{ secrets.AWS_ACCESS_KEY_ID }}"
+          aws configure set aws_secret_access_key "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
           aws configure set region us-east-1
 
       - name: Deploy Lambda function
         run: |
-          aws lambda update-function-code --function-name lambda-function --zip-file fileb://lambda_function.zip
+          aws lambda update-function-code --function-name lambda-function1 --zip-file fileb://lambda_function.zip

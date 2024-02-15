@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: Deploy lambda_function.py
+    name: Deploy Lambda Function
     runs-on: ubuntu-latest
 
     steps:
@@ -23,7 +23,7 @@ jobs:
         run: |
           zip -r lambda_function.zip .
 
-      - name: Configure AWS credentials and deploy Lambda function
+      - name: Deploy Lambda function
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
@@ -32,6 +32,6 @@ jobs:
           aws lambda update-function-code \
             --function-name lambda_function \
             --zip-file fileb://lambda_function.zip \
-            --region $ap-south-1 \
-            --access-key-id $AKIARRVUR7R34QNBJF23 \
-            --secret-access-key $imLProS211N441vqGtD4+fzB202IZkd9qsv64dSm
+            --region $AWS_DEFAULT_REGION \
+            --access-key-id $AWS_ACCESS_KEY_ID \
+            --secret-access-key $AWS_SECRET_ACCESS_KEY

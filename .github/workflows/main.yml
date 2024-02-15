@@ -29,5 +29,5 @@ jobs:
           access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           region: 'us-east-1'
-          function_name: 'lambda-function'
+          function_name: 'lambda_function'
           zip_file: 'lambda_function.zip'

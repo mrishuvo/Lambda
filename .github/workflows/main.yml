@@ -23,16 +23,15 @@ jobs:
         run: |
           zip -r lambda_function.zip .
 
-      - name: Configure AWS credentials
+      - name: Configure AWS credentials and deploy Lambda function
         env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          AWS_ACCESS_KEY_ID: ${{ secrets.AKIARRVUR7R34QNBJF23 }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.imLProS211N441vqGtD4+fzB202IZkd9qsv64dSm }}
           AWS_DEFAULT_REGION: ap-south-1
         run: |
-          aws configure set aws_access_key_id $AWS_ACCESS_KEY_ID
-          aws configure set aws_secret_access_key $AWS_SECRET_ACCESS_KEY
-          aws configure set default.region $AWS_DEFAULT_REGION
-
-      - name: Deploy Lambda function
-        run: |
-          aws lambda update-function-code --function-name lambda_function --zip-file fileb://lambda_function.zip
+          aws lambda update-function-code \
+            --function-name lambda_function \
+            --zip-file fileb://lambda_function.zip \
+            --region $AWS_DEFAULT_REGION \
+            --access-key-id $AWS_ACCESS_KEY_ID \
+            --secret-access-key $AWS_SECRET_ACCESS_KEY

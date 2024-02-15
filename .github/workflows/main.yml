@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    name: lambda.py
+    name: lambda_function.py
     runs-on: ubuntu-latest
 
     steps:
